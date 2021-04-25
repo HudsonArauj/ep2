@@ -8,3 +8,11 @@ def extrai_naipe(carta):
     else:
         naipe = carta[1]
     return naipe
+
+def extrai_valor(carta):
+    if len(carta)>2:
+        valor = carta[0]+carta[1]
+    else:
+        valor = carta[0]
+    return valor
+
