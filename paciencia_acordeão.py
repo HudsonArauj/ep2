@@ -16,3 +16,8 @@ def extrai_valor(carta):
         valor = carta[0]
     return valor
 
+def lista_movimentos_possiveis(baralho, i):
+    if extrai_carta(baralho[i]) == extrai_carta(baralho[i-1]) or extrai_valor(baralho[i]) == extrai_valor(baralho[i-1]):
+        resultado = [1]
+    if extrai_carta(baralho[i]) == extrai_carta(baralho[i-3]) or extrai_valor(baralho[i]) == extrai_valor(baralho[i-3]):
+        resultado = [3]
