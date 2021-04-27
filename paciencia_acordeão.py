@@ -37,6 +37,3 @@ def lista_movimentos_possiveis(baralho,i):
             
 
     return lista_possiveis
-    
-    
-print(lista_movimentos_possiveis(['A♦', 'J♥', 'Q♣', 'K♠', '10♣'],2))
