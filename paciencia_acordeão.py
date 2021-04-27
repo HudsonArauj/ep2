@@ -17,7 +17,16 @@ def extrai_valor(carta):
     return valor
 
 def lista_movimentos_possiveis(baralho, i):
-    if extrai_carta(baralho[i]) == extrai_carta(baralho[i-1]) or extrai_valor(baralho[i]) == extrai_valor(baralho[i-1]):
+    v = extrai_naipe(baralho[i]) == extrai_naipe(baralho[i-3]) or extrai_valor(baralho[i]) == extrai_valor(baralho[i-3])
+    n = extrai_naipe(baralho[i]) == extrai_naipe(baralho[i-1]) or extrai_valor(baralho[i]) == extrai_valor(baralho[i-1])
+    if i == 0:
+        resultado = []
+    elif i>=3 and v and n:
+        resultado =[1, 3]
+    elif n:
         resultado = [1]
-    if extrai_carta(baralho[i]) == extrai_carta(baralho[i-3]) or extrai_valor(baralho[i]) == extrai_valor(baralho[i-3]):
-        resultado = [3]
+    elif i>=3 and v:
+        resultado = [3] 
+    else:
+        resultado = []
+    return resultado
