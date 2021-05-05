@@ -16,10 +16,7 @@ def extrai_valor(carta):
         valor = carta[0]
     return valor
 
-
 def lista_movimentos_possiveis(baralho,i):
-        
-    
     lista_possiveis =[]
     if i ==0:
         return lista_possiveis
@@ -27,15 +24,10 @@ def lista_movimentos_possiveis(baralho,i):
         if extrai_naipe(baralho[i])== extrai_naipe(baralho[i-1]) or extrai_valor(baralho[i])==extrai_valor(baralho[i-1]):
             lista_possiveis.append(1)
     elif len(baralho)>3:
-        
         if extrai_naipe(baralho[i])== extrai_naipe(baralho[i-1]) or extrai_valor(baralho[i])==extrai_valor(baralho[i-1]):
-            lista_possiveis.append(1)
-            
+            lista_possiveis.append(1) 
         if (extrai_naipe(baralho[i]) == extrai_naipe(baralho[i-3]) or extrai_valor(baralho[i])==extrai_valor(baralho[i-3])) and (i-3) >=0:
-            
             lista_possiveis.append(3)
-            
-
     return lista_possiveis
 
 
