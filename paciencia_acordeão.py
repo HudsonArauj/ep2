@@ -37,3 +37,20 @@ def lista_movimentos_possiveis(baralho,i):
             
 
     return lista_possiveis
+
+
+def empilha(baralho,origem,destino):
+    baralho[destino] = baralho[origem]
+    
+    del baralho[origem]
+    return baralho
+
+
+
+def possui_movimentos_possiveis(baralho):
+    possibilidade = False
+    for i in range(len(baralho)):
+        if len(lista_movimentos_possiveis(baralho,i)) != 0:
+            possibilidade = True
+
+    return possibilidade   
