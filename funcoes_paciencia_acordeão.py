@@ -48,11 +48,9 @@ def possui_movimentos_possiveis(baralho):
 print('Paiciencia acordeao')
 print('o estado atual do baralho é:')
 baralho = cria_baralho()
-
 entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
 
 while possui_movimentos_possiveis(baralho) != False:    
     for i in range(len(baralho)):
         print('{0}. {1}'.format(i+1, baralho[i]))
-    if lista_movimentos_possiveis(baralho, entrada) == True:
-    #novo_baralho = 
+    
