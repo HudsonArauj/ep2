@@ -59,10 +59,18 @@ while possui_movimentos_possiveis(baralho) != False:
     elif len(possibilidades) == 2:
         print("Escolha sobra qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
         print('{0}. {1}'.format(1, baralho[int(entrada)-2]))
-        print('{0}. {}'.format(2, baralho[int(entrada)-4]))
-        escolha2 = input('Digite o número de sua escolha (1 ou 2): ')
+        print('{0}. {1}'.format(2, baralho[int(entrada)-4]))
+        escolha2 = ''
+        while escolha2 != '1' and escolha2 != '2':
+            escolha2 = input('Digite o número de sua escolha (1 ou 2): ')
+            if escolha2 == '1':
+                baralho = empilha(baralho, int(entrada)-1, int(entrada)-2)
+            elif escolha2 == '2':
+                baralho = empilha(baralho, int(entrada)-1, int(entrada)-4)
+            else:
+                print('Escolha inválida')
     elif len(possibilidades) == 1:
-        empilha(baralho, int(entrada)-1, int(entrada)-2)
+        baralho = empilha(baralho, int(entrada)-1, int(entrada)-2)
 
     possui_movimentos_possiveis(baralho) == False
     
