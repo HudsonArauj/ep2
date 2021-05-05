@@ -1,7 +1,10 @@
+import random
 def cria_baralho():
     cartas =['A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣']
+    random.shuffle(cartas)
     return cartas
 
+print(cria_baralho())
 def extrai_naipe(carta):
     if len(carta)>2:
         naipe = carta[2]
@@ -45,12 +48,11 @@ def possui_movimentos_possiveis(baralho):
 print('Paiciencia acordeao')
 print('o estado atual do baralho é:')
 baralho = cria_baralho()
-for i in range(len(baralho)):
-    print('{0}. {1}'.format(i+1, baralho[i]))
+
 entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
 
-#while possui_movimentos_possiveis(baralho) != False:
-    #if lista_movimentos_possiveis(baralho, entrada) == True:
-
+while possui_movimentos_possiveis(baralho) != False:    
+    for i in range(len(baralho)):
+        print('{0}. {1}'.format(i+1, baralho[i]))
+    if lista_movimentos_possiveis(baralho, entrada) == True:
     #novo_baralho = 
-    
