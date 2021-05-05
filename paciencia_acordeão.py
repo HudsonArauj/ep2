@@ -40,9 +40,9 @@ def empilha(baralho,origem,destino):
 
 
 def possui_movimentos_possiveis(baralho):
-    possibilidade = False
+    possibilidades = False
     for i in range(len(baralho)):
         if len(lista_movimentos_possiveis(baralho,i)) != 0:
-            possibilidade = True
+            possibilidades = True
 
-    return possibilidade   
+    return possibilidades   
