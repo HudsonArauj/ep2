@@ -68,7 +68,7 @@ while possui_movimentos_possiveis(baralho) != False:
             elif escolha2 == '2':
                 baralho = empilha(baralho, int(entrada)-1, int(entrada)-4)
             else:
-                print('Escolha inválida')
+                print('Escolha inválida!')
     elif len(possibilidades) == 1:
         baralho = empilha(baralho, int(entrada)-1, int(entrada)-2)
 
