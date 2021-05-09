@@ -2,6 +2,13 @@ import funcoes_paciencia
 
 
 print('Paiciencia acordeao')
+print('='*30)
+print('Seja bem-vindo(a) ao jogo de Paciência Acordão! \nO objetivo é empilhar todas as cartas.\n\n')
+
+print('Existem apenas dois movimentos: \n1. Empilhar uma carta sobre a anterior \n2. Empilhar uma carta sobre a terceira carta anterior\n\n')
+print('Para que o movimento possa ser realizado basta que uma das condições sejam atentidas:\n1. As duas cartas possuem o mesmo valor ou \n2. As duas cartas possuem o mesmo naipe.\n\n')
+print('Se alguma condição anterior é satisfeita,\nqualquer carta pode ser movimentada\n\n')
+print('Aperte [Enter] para iniciar o jogo!\n\n')
 print('o estado atual do baralho é:')
 baralho = funcoes_paciencia.cria_baralho()
 
