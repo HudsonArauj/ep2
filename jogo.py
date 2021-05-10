@@ -9,34 +9,26 @@ print('Existem apenas dois movimentos: \n1. Empilhar uma carta sobre a anterior 
 print('Para que o movimento possa ser realizado basta que uma das condições sejam atendidas:\n1. As duas cartas possuem o mesmo valor ou \n2. As duas cartas possuem o mesmo naipe.\n\n')
 print('Se alguma condição anterior é satisfeita,\nqualquer carta pode ser movimentada\n\n')
 #print('Aperte [Enter] para iniciar o jogo!\n\n')
-inicio = input('Aperte [Enter] para iniciar o jogo!\n\n')
-print('o estado atual do baralho é:')
-baralho = funcoes_paciencia.cria_baralho()
+inicio = input('Aperte [Enter] para iniciar o jogo! ')
 
-while funcoes_paciencia.possui_movimentos_possiveis(baralho) != False:    
-    for i in range(len(baralho)):
-        print('{0}. {1}'.format(i+1, baralho[i]))
-    entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
-    
-    if int(entrada) >= 53 or int(entrada) <= 0:
-    
-        print('Entrada invalida')
 resposta = 'sim'
 while resposta == 'sim':
-    print('Paiciencia acordeao')
     print('o estado atual do baralho é:')
     baralho = funcoes_paciencia.cria_baralho()
     while funcoes_paciencia.possui_movimentos_possiveis(baralho) != False:    
         for i in range(len(baralho)):
             print('{0}. {1}'.format(i+1, baralho[i]))
         entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
-        if int(entrada) >= 53 or int(entrada) <= 0:
+        if entrada != int:
+            print('Entrada invalida')
+        elif int(entrada) >= len(baralho)+1 or int(entrada) <= 0:
             print('Entrada invalida')
         else:    
             possibilidades = funcoes_paciencia.lista_movimentos_possiveis(baralho, int(entrada)-1)
             if len(possibilidades) == 0:
                 print("A carta {} não pode ser movida".format(baralho[int(entrada)-1]))
                 entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
+                print('o estado atual do baralho é:')
             elif len(possibilidades) == 2:
                 print("Escolha sobra qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
                 print('{0}. {1}'.format(1, baralho[int(entrada)-2]))
@@ -46,8 +38,10 @@ while resposta == 'sim':
                     escolha2 = input('Digite o número de sua escolha (1 ou 2): ')
                     if escolha2 == '1':
                         baralho = funcoes_paciencia.empilha(baralho, int(entrada)-1, int(entrada)-2)
+                        print('o estado atual do baralho é:')
                     elif escolha2 == '2':
                         baralho = funcoes_paciencia.empilha(baralho, int(entrada)-1, int(entrada)-4)
+                        print('o estado atual do baralho é:')
                     else:
                         print('Escolha inválida!')
                         print("Escolha sobra qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
@@ -55,6 +49,7 @@ while resposta == 'sim':
                         print('{0}. {1}'.format(2, baralho[int(entrada)-4]))
             elif len(possibilidades) == 1:
                 baralho = funcoes_paciencia.empilha(baralho, int(entrada)-1, int(entrada)-2)
+                print('o estado atual do baralho é:')
         funcoes_paciencia.possui_movimentos_possiveis(baralho) == False
     if len(baralho) == 1:
         print('Parabéns você ganhou!')
