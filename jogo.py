@@ -61,7 +61,7 @@ while resposta == 'sim':
             entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
             print('o estado atual do baralho é:')
         elif len(possibilidades) == 2:
-            print("Escolha sobra qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
+            print("Escolha sobre qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
             print('{0}. {1}'.format(1, baralho[int(entrada)-2]))
             print('{0}. {1}'.format(2, baralho[int(entrada)-4]))
             escolha2 = ''
