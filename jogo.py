@@ -1,4 +1,5 @@
 import funcoes_paciencia
+
 RED   = "\033[1;31m"  
 BLUE  = "\033[1;34m"
 CYAN  = "\033[1;33m"
@@ -15,7 +16,6 @@ print('Seja bem-vindo(a) ao jogo de Paciência Acordeão! \nO objetivo é empilh
 print('Existem apenas dois movimentos: \n1. Empilhar uma carta sobre a anterior \n2. Empilhar uma carta sobre a terceira carta anterior\n\n')
 print('Para que o movimento possa ser realizado basta que uma das condições sejam atendidas:\n1. As duas cartas possuem o mesmo valor ou \n2. As duas cartas possuem o mesmo naipe.\n\n')
 print('Se alguma condição anterior é satisfeita,\nqualquer carta pode ser movimentada\n\n')
-#print('Aperte [Enter] para iniciar o jogo!\n\n')
 inicio = input('Aperte [Enter] para iniciar o jogo! ')
 
 resposta = 'sim'
@@ -30,7 +30,7 @@ while resposta == 'sim':
             elif funcoes_paciencia.extrai_naipe(carta) == '♥':
                 carta = RED + carta + RESET
             elif funcoes_paciencia.extrai_naipe(carta) == '♦':
-                carta =CYAN + carta + RESET
+                carta = CYAN + carta + RESET
             else:
                 carta = GREEN + carta + RESET
 
@@ -46,21 +46,21 @@ while resposta == 'sim':
                 entrada = input('Entrada inválida. Escolha um numero de 1 a {}: '.format(len(baralho)))
             else:
                 aux = False
-
     
-        
-        #if entrada != int:
-           #print('Entrada invalida')
-        
-            #print(len(baralho))
-            
-        #else:    
         possibilidades = funcoes_paciencia.lista_movimentos_possiveis(baralho, int(entrada)-1)
-        if len(possibilidades) == 0:
-            print("A carta {} não pode ser movida".format(baralho[int(entrada)-1]))
+        while len(possibilidades) == 0:
+            carta = baralho[int(entrada)-1]
+            if funcoes_paciencia.extrai_naipe(carta) == '♠':
+                carta = BLUE + carta + RESET
+            elif funcoes_paciencia.extrai_naipe(carta) == '♥':
+                carta = RED + carta + RESET
+            elif funcoes_paciencia.extrai_naipe(carta) == '♦':
+                carta = CYAN + carta + RESET
+            else:
+                carta = GREEN + carta + RESET
+            print("A carta {} não pode ser movida".format(carta))
             entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
-            print('o estado atual do baralho é:')
-        elif len(possibilidades) == 2:
+        if len(possibilidades) == 2:
             print("Escolha sobre qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
             print('{0}. {1}'.format(1, baralho[int(entrada)-2]))
             print('{0}. {1}'.format(2, baralho[int(entrada)-4]))
