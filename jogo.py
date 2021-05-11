@@ -33,7 +33,6 @@ while resposta == 'sim':
                 carta = CYAN + carta + RESET
             else:
                 carta = GREEN + carta + RESET
-
             print('{0}. {1}'.format(i+1, carta))
         entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
         aux = True
@@ -60,6 +59,8 @@ while resposta == 'sim':
                 carta = GREEN + carta + RESET
             print("A carta {} não pode ser movida".format(carta))
             entrada = input('escolha um numero de 1 a {}: '.format(len(baralho)))
+            possibilidades = funcoes_paciencia.lista_movimentos_possiveis(baralho, int(entrada)-1)
+        
         if len(possibilidades) == 2:
             print("Escolha sobre qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
             print('{0}. {1}'.format(1, baralho[int(entrada)-2]))
@@ -75,14 +76,27 @@ while resposta == 'sim':
                     print('o estado atual do baralho é:')
                 else:
                     print('Escolha inválida!')
-                    
                     print("Escolha sobra qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
                     print('{0}. {1}'.format(1, baralho[int(entrada)-2]))
                     print('{0}. {1}'.format(2, baralho[int(entrada)-4]))
         elif len(possibilidades) == 1:
-            baralho = funcoes_paciencia.empilha(baralho, int(entrada)-1, int(entrada)-2)
+            if possibilidades == [1]:
+                baralho = funcoes_paciencia.empilha(baralho, int(entrada)-1, int(entrada)-2)
+            if possibilidades == [3]:
+                baralho = funcoes_paciencia.empilha(baralho, int(entrada)-1, int(entrada)-4)
             print('o estado atual do baralho é:')
         funcoes_paciencia.possui_movimentos_possiveis(baralho) == False
+    for i in range(len(baralho)):
+        carta = baralho[i]
+        if funcoes_paciencia.extrai_naipe(carta) == '♠':
+            carta = BLUE + carta + RESET
+        elif funcoes_paciencia.extrai_naipe(carta) == '♥':
+            carta = RED + carta + RESET
+        elif funcoes_paciencia.extrai_naipe(carta) == '♦':
+            carta = CYAN + carta + RESET
+        else:
+            carta = GREEN + carta + RESET
+        print('{0}. {1}'.format(i+1, carta))
     if len(baralho) == 1:
         print('Parabéns você ganhou!')
         resposta = input('Você quer jogar novamente? (sim ou não) ')
