@@ -62,9 +62,36 @@ while resposta == 'sim':
             possibilidades = funcoes_paciencia.lista_movimentos_possiveis(baralho, int(entrada)-1)
         
         if len(possibilidades) == 2:
-            print("Escolha sobre qual carta você que empilhar o {}".format(baralho[int(entrada)-1]))
-            print('{0}. {1}'.format(1, baralho[int(entrada)-2]))
-            print('{0}. {1}'.format(2, baralho[int(entrada)-4]))
+            carta1 = baralho[int(entrada)-1]
+            carta2 = baralho[int(entrada)-2]
+            carta3 = baralho[int(entrada)-4]
+            if funcoes_paciencia.extrai_naipe(carta1) == '♠':
+                carta1 = BLUE + carta1 + RESET
+            elif funcoes_paciencia.extrai_naipe(carta1) == '♥':
+                carta1 = RED + carta1 + RESET
+            elif funcoes_paciencia.extrai_naipe(carta1) == '♦':
+                carta1 = CYAN + carta1 + RESET
+            else:
+                carta1 = GREEN + carta1 + RESET
+            print("Escolha sobre qual carta você que empilhar o {}".format(carta1))
+            if funcoes_paciencia.extrai_naipe(carta2) == '♠':
+                carta2 = BLUE + carta2 + RESET
+            elif funcoes_paciencia.extrai_naipe(carta2) == '♥':
+                carta2 = RED + carta2 + RESET
+            elif funcoes_paciencia.extrai_naipe(carta2) == '♦':
+                carta2 = CYAN + carta2 + RESET
+            else:
+                carta2 = GREEN + carta2 + RESET
+            print('{0}. {1}'.format(1, carta2))
+            if funcoes_paciencia.extrai_naipe(carta3) == '♠':
+                carta3 = BLUE + carta3 + RESET
+            elif funcoes_paciencia.extrai_naipe(carta3) == '♥':
+                carta3 = RED + carta3 + RESET
+            elif funcoes_paciencia.extrai_naipe(carta3) == '♦':
+                carta3 = CYAN + carta3 + RESET
+            else:
+                carta3 = GREEN + carta3 + RESET
+            print('{0}. {1}'.format(2, carta3))
             escolha2 = ''
             while escolha2 != '1' and escolha2 != '2':
                 escolha2 = input('Digite o número de sua escolha (1 ou 2): ')
